@@ -1,0 +1,104 @@
+package Pdf_Converter;
+import java.net.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.File;
+import java.util.jar.JarFile;
+
+import javax.swing.*;
+
+public class Pdf extends JFrame implements ActionListener {
+	JLabel l1,l2;
+	JFileChooser fs;
+	JTextArea ar;
+	JMenuBar mb;
+	JMenu m;
+	JMenuItem jmt;
+	JButton b1;
+	
+	public Pdf()
+	{
+	   setTitle("Converter");
+	   JFrame f1=new JFrame();
+	   f1.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	   
+	   l1=new JLabel("Online PDF Converter");
+	   l1.setBounds(100,20,500,40);
+	   l1.setFont(new Font("Arial",Font.BOLD,45));
+	   l1.setForeground(Color.gray);
+	   add(l1);
+	   
+	   l2=new JLabel("Easily convert to and from PDF in seconds.");
+	   l2.setBounds(100,100,500,40);
+	   l2.setFont(new Font("Arial",Font.BOLD,15));
+	   l2.setForeground(Color.gray);
+	   add(l2);
+	   
+	   jmt=new JMenuItem("file");
+	   jmt.setBounds(100,250,200,40);
+	   
+	   m=new JMenu("+          File Chooser      ");
+	   m.setFont(new Font("Arial",Font.BOLD,25));
+	   m.setForeground(Color.white);
+	   m.setBounds(100,200,300,40);
+	   m.add(jmt);
+	   
+	   mb=new JMenuBar();
+	   mb.setToolTipText("file");
+	   mb.setBackground(new Color(191,41,11));
+	   mb.setBounds(200, 200, 350, 60);
+	   mb.add(m);
+	   add(mb);
+	   
+	  
+	   
+	   
+	  ar=new JTextArea();
+	  ar.setBounds(100,300,200,40);
+	  add(ar);
+	  
+	  b1=new JButton("Submit");
+	  b1.setFont(new Font("Arial",Font.BOLD,25));
+	  b1.setBackground(new Color(43,173,73));
+	  b1.setForeground(Color.white);
+	  b1.setBounds(450,280,200,40);
+	  add(b1);
+	  
+	   
+	   
+	   setLayout(null);
+	   setBounds(300,30,700,600);
+	   setVisible(true);
+	   jmt.addActionListener(this);
+	   
+	}
+	
+	public void actionPerformed(ActionEvent ae)
+	{
+	if(ae.getSource()==jmt)
+	{
+		JFileChooser jfc=new JFileChooser();
+		int i=jfc.showOpenDialog(this);
+		if(i==jfc.APPROVE_OPTION)	
+		{
+			File f=jfc.getSelectedFile();
+			String s=f.getPath();
+			try
+			{
+			// FileInputStream fs=new FileInputStream("D:\\song\\rkp\\A.java");
+				
+			}catch(Exception e)
+			{
+				System.err.println(e);
+			}
+		}
+		
+	}
+		
+	}
+	
+	public static void main(String[] args) {
+		new Pdf();
+		
+	}
+}
